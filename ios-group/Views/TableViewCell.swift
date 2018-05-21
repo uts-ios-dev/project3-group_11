@@ -26,7 +26,7 @@ class TableViewCell: UITableViewCell {
         
         
            priceLabel = UILabel(frame: CGRect.null)
-        describeLabel = UILabel(frame: CGRect.null)
+           describeLabel = UILabel(frame: CGRect.null)
            timeLabel = UILabel(frame: CGRect.null)
         
          super.init(style: style, reuseIdentifier: reuseIdentifier)

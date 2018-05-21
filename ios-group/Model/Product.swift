@@ -15,7 +15,7 @@ class Product : Codable , Comparable{
     var name:String?
     var band:String?
     var price:Double?
-    var timeExpire:Double?
+    var timeExpire:Int?
     var image:String?
     
     var describe:String?
@@ -44,7 +44,7 @@ class Product : Codable , Comparable{
         
       if  let tTime = self.timeExpire {
         
-            let date = Date(timeIntervalSince1970: tTime)
+            let date = Date(timeIntervalSince1970: Double(tTime))
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
             dateFormatter.locale = NSLocale.current
