@@ -15,6 +15,5 @@ protocol ProductUtilProtocols {
     func getPreExpireProduct()
     func removeProductById(id:Int)
     func getProductById(id:Int)
-    
 }
 
