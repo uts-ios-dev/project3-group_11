@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C4DC43D20B2756C000B8C30 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = 4C4DC43C20B2756C000B8C30 /* Views */; };
+		4C4DC44120B27589000B8C30 /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = 4C4DC44020B27589000B8C30 /* Utils */; };
+		4C4DC44320B27590000B8C30 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 4C4DC44220B27590000B8C30 /* Models */; };
 		D4CF365320A955500017A75B /* add-list.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CF365120A955500017A75B /* add-list.png */; };
 		D4CF365420A955500017A75B /* 9-512.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CF365220A955500017A75B /* 9-512.png */; };
 		D4F98AA220A9455D006C88C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F98AA120A9455D006C88C4 /* AppDelegate.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C4DC43C20B2756C000B8C30 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
+		4C4DC44020B27589000B8C30 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
+		4C4DC44220B27590000B8C30 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		D4CF365120A955500017A75B /* add-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add-list.png"; path = "image/add-list.png"; sourceTree = SOURCE_ROOT; };
 		D4CF365220A955500017A75B /* 9-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "9-512.png"; path = "image/9-512.png"; sourceTree = SOURCE_ROOT; };
 		D4F98A9E20A9455D006C88C4 /* ios-group.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-group.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +107,9 @@
 		D4F98AA020A9455D006C88C4 /* ios-group */ = {
 			isa = PBXGroup;
 			children = (
+				4C4DC44220B27590000B8C30 /* Models */,
+				4C4DC44020B27589000B8C30 /* Utils */,
+				4C4DC43C20B2756C000B8C30 /* Views */,
 				D4CF365220A955500017A75B /* 9-512.png */,
 				D4CF365120A955500017A75B /* add-list.png */,
 				D4F98AA120A9455D006C88C4 /* AppDelegate.swift */,
@@ -240,8 +249,11 @@
 			files = (
 				D4F98AAC20A9455F006C88C4 /* LaunchScreen.storyboard in Resources */,
 				D4CF365420A955500017A75B /* 9-512.png in Resources */,
+				4C4DC44320B27590000B8C30 /* Models in Resources */,
 				D4CF365320A955500017A75B /* add-list.png in Resources */,
+				4C4DC43D20B2756C000B8C30 /* Views in Resources */,
 				D4F98AA920A9455F006C88C4 /* Assets.xcassets in Resources */,
+				4C4DC44120B27589000B8C30 /* Utils in Resources */,
 				D4F98AA720A9455D006C88C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
