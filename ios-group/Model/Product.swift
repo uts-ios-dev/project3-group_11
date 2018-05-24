@@ -9,15 +9,15 @@
 import UIKit
 
 
-class Product : Codable , Comparable{
+class Product :   Comparable{
  
     var id:Int?
     var name:String?
     var band:String?
     var price:Double?
     var timeExpire:Int?
-    var image:String?
-    
+    var image:UIImage?
+    var mini:UIImage?
     var describe:String?
       init?() {
         
