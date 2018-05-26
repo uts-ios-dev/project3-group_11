@@ -22,6 +22,21 @@ class StroageUtils: NSObject {
         return appDelegate.products
     }
     
+    static func removeProductById(id: Int){
+        let delegate = UIApplication.shared.delegate
+        let appDelegate = delegate as! AppDelegate
+        if let index = appDelegate.products.index(where: { $0.id == id }) {
+            appDelegate.products.remove(at: index)
+        }
+    }
+    
+    static func getProductById(id: Int)-> Product{
+        let delegate = UIApplication.shared.delegate
+        let appDelegate = delegate as! AppDelegate
+        let index = appDelegate.products.index(where: { $0.id == id })
+        return appDelegate.products[index!]
+    }
+    
 //static let PRODUCT_KEY : String = "PRODUCT_KEY"
 //    static func loadProduct() -> [Product]?{
 //

@@ -10,9 +10,9 @@ import UIKit
  
 protocol ProductUtilProtocols {
 
-    func getExpireProduct()
-    func getUnExpireProduct()
-    func getPreExpireProduct()
+    func getExpireProduct()->[Product]
+    func getUnExpireProduct()->[Product]
+    func getPreExpireProduct()->[Product]
     func removeProductById(id:Int)
     func getProductById(id:Int)
 }

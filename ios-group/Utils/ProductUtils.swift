@@ -9,24 +9,61 @@
 import UIKit
 
 class ProductUtils:ProductUtilProtocols {
-    func getExpireProduct() {
+    
+    
+    func getExpireProduct()->[Product] {
+        let timeStamp = Int(Date().timeIntervalSince1970)
+        var data = [Product]()
         
+        let allProducts = StroageUtils.getProduct()
+        allProducts.forEach{ product in
+            if let time = product.timeExpire {
+                if time <= timeStamp {
+                    data.append(product)
+                }
+            }
+        }
+        return data
     }
     
-    func getUnExpireProduct() {
+    func getUnExpireProduct()->[Product] {
         
+        let timeStamp = Int(Date().timeIntervalSince1970)
+        var data = [Product]()
+        
+        let allProducts = StroageUtils.getProduct()
+        allProducts.forEach{ product in
+            if let time = product.timeExpire {
+                if time > timeStamp {
+                    data.append(product)
+                }
+            }
+        }
+        return data
     }
     
-    func getPreExpireProduct() {
+    func getPreExpireProduct()->[Product] {
+        //get almost expired product by 1 month
+        let timeStamp = Int(Date().timeIntervalSince1970)
+        var data = [Product]()
         
+        let allProducts = StroageUtils.getProduct()
+        allProducts.forEach{ product in
+            if let time = product.timeExpire {
+                if time - 2592000 <= timeStamp {
+                    data.append(product)
+                }
+            }
+        }
+        return data
     }
     
     func removeProductById(id: Int) {
-        
+        StroageUtils.removeProductById(id: id)
     }
     
     func getProductById(id: Int) {
-        
+        StroageUtils.getProductById(id: id)
     }
     
    
