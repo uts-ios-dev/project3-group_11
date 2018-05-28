@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -58,6 +57,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUN-bI-lu1">
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
                                                         <state key="normal" title="Replace"/>
+                                                        <connections>
+                                                            <segue destination="mz6-xr-i1r" kind="show" identifier="" id="juh-aY-ATJ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -160,6 +162,29 @@
             </objects>
             <point key="canvasLocation" x="1946" y="114"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="BzQ-VE-NIr">
+            <objects>
+                <viewController id="mz6-xr-i1r" customClass="MyWebViewController" customModule="ios_group" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="view" contentMode="scaleToFill" id="DEu-Za-GN6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <items>
+                            <navigationItem title="Title" id="ZMz-wn-tFH"/>
+                        </items>
+                    </navigationBar>
+                    <navigationItem key="navigationItem" title="Detail" id="6FO-tb-dok">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="uiT-Yu-Aan">
+                            <connections>
+                                <action selector="tapHome:" destination="mz6-xr-i1r" id="oHU-4S-DfG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGT-ET-g0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-404" y="1115"/>
+        </scene>
         <!--Scan-->
         <scene sceneID="Wnk-R3-GbU">
             <objects>
@@ -190,11 +215,12 @@
                     <navigationItem key="navigationItem" title="Scan" id="GmA-gz-n2L"/>
                     <connections>
                         <outlet property="scanView" destination="CAX-wu-8gw" id="vOD-aB-o9L"/>
+                        <segue destination="mz6-xr-i1r" kind="show" identifier="goSearch" id="3jn-Sa-y5p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxB-9x-9IX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165.59999999999999" y="1051.1244377811095"/>
+            <point key="canvasLocation" x="504.80000000000001" y="1051.1244377811095"/>
         </scene>
         <!--Add-->
         <scene sceneID="oIS-n6-ZdI">
@@ -262,10 +288,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eA2-R6-wGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="1092.5037481259371"/>
+            <point key="canvasLocation" x="1511.2" y="1092.5037481259371"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3ae-OF-UZY"/>
+        <segue reference="3jn-Sa-y5p"/>
     </inferredMetricsTieBreakers>
 </document>

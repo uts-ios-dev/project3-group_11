@@ -16,6 +16,7 @@
 		4C52350820B288C10090698A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52350720B288C10090698A /* TableViewCell.swift */; };
 		4C96E37320B64F5300FA1BE0 /* ScanViewControlloerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E37220B64F5300FA1BE0 /* ScanViewControlloerViewController.swift */; };
 		4C96E37520B667B400FA1BE0 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E37420B667B400FA1BE0 /* NewItemViewController.swift */; };
+		4C9E071720BBB25D003A7E4D /* MyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E071620BBB25D003A7E4D /* MyWebViewController.swift */; };
 		D4CF365320A955500017A75B /* add-list.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CF365120A955500017A75B /* add-list.png */; };
 		D4CF365420A955500017A75B /* 9-512.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CF365220A955500017A75B /* 9-512.png */; };
 		D4F98AA220A9455D006C88C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F98AA120A9455D006C88C4 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		4C52350720B288C10090698A /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "ios-group/Views/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4C96E37220B64F5300FA1BE0 /* ScanViewControlloerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewControlloerViewController.swift; sourceTree = "<group>"; };
 		4C96E37420B667B400FA1BE0 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		4C9E071620BBB25D003A7E4D /* MyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebViewController.swift; sourceTree = "<group>"; };
 		D4CF365120A955500017A75B /* add-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add-list.png"; path = "image/add-list.png"; sourceTree = SOURCE_ROOT; };
 		D4CF365220A955500017A75B /* 9-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "9-512.png"; path = "image/9-512.png"; sourceTree = SOURCE_ROOT; };
 		D4F98A9E20A9455D006C88C4 /* ios-group.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-group.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 			children = (
 				4C96E37220B64F5300FA1BE0 /* ScanViewControlloerViewController.swift */,
 				4C96E37420B667B400FA1BE0 /* NewItemViewController.swift */,
+				4C9E071620BBB25D003A7E4D /* MyWebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				4C52350520B288B40090698A /* ProductUtils.swift in Sources */,
 				4C4DC44A20B27C58000B8C30 /* ProductUtilProtocols.swift in Sources */,
 				4C52350620B288B40090698A /* Utils.swift in Sources */,
+				4C9E071720BBB25D003A7E4D /* MyWebViewController.swift in Sources */,
 				D4F98AA220A9455D006C88C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

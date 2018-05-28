@@ -11,7 +11,7 @@ import AVFoundation
 class ScanViewControlloerViewController: UIViewController , AVCaptureMetadataOutputObjectsDelegate{
 
     @IBOutlet weak var scanView: UIView!
-    
+    var data:String = ""
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
@@ -100,6 +100,17 @@ class ScanViewControlloerViewController: UIViewController , AVCaptureMetadataOut
     
     func finishCapture(res:String){
          print(res)
+        
+        UIPasteboard.general.string = res;
+        data = res
+          performSegue(withIdentifier: "goSearch", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goSearch" {
+            let controller = segue.destination as! MyWebViewController
+            controller.data = self.data
+        }
     }
     /*
     // MARK: - Navigation
