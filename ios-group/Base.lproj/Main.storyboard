@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ey5-aP-h0Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ey5-aP-h0Z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-622" y="133"/>
         </scene>
-        <!--Home-->
+        <!--Beauty Manager-->
         <scene sceneID="WyR-eW-zVt">
             <objects>
                 <viewController id="n4q-9X-KsQ" sceneMemberID="viewController">
@@ -43,13 +42,28 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bLG-ey-g7F">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-8F-qvI">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NCG-PU-CfT">
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
-                                                        <state key="normal" title="My List"/>
-                                                        <connections>
-                                                            <segue destination="7Hv-xD-0up" kind="show" id="UPI-XX-Oa2"/>
-                                                        </connections>
-                                                    </button>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DbY-BX-sZD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-8F-qvI">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
+                                                                        <color key="backgroundColor" red="0.98580032587051392" green="0.96085625190830282" blue="0.8470369915853535" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                        <state key="normal" title="My List">
+                                                                            <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="myList:" destination="OBW-Yr-h5X" eventType="touchUpInside" id="uQu-wc-fpp"/>
+                                                                            <segue destination="7Hv-xD-0up" kind="show" id="UPI-XX-Oa2"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-jO-bgK">
@@ -57,7 +71,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUN-bI-lu1">
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
-                                                        <state key="normal" title="Replace"/>
+                                                        <color key="backgroundColor" red="0.98580032587051392" green="0.92313372860628262" blue="0.89280531412070752" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="Replace">
+                                                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -71,7 +89,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pei-5D-4NE">
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
-                                                        <state key="normal" title="New"/>
+                                                        <color key="backgroundColor" red="0.84899015313629222" green="0.95140814533543461" blue="0.98580032587051392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="New">
+                                                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <segue destination="7TS-nv-lpR" kind="show" id="3ae-OF-UZY"/>
                                                         </connections>
@@ -83,7 +105,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfm-ZH-MOP">
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
-                                                        <state key="normal" title="Scan"/>
+                                                        <color key="backgroundColor" red="0.88267771769058634" green="0.98580032587051392" blue="0.97496309195528763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="Scan">
+                                                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <segue destination="XsI-rM-LbU" kind="show" id="CFd-zw-R4L"/>
                                                         </connections>
@@ -104,9 +130,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hkf-WZ-Jf5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="l6F-mF-8en"/>
+                    <navigationItem key="navigationItem" title="Beauty Manager" id="l6F-mF-8en"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhw-H5-7lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OBW-Yr-h5X" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="160.80000000000001" y="132.68365817091455"/>
         </scene>
@@ -126,6 +153,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.9858003259" green="0.96085625190000001" blue="0.84703699160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -266,6 +294,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3ae-OF-UZY"/>
+        <segue reference="8by-wj-KIb"/>
     </inferredMetricsTieBreakers>
 </document>
