@@ -16,10 +16,17 @@ class Product :   Comparable{
     var band:String?
     var price:Double?
     var timeExpire:Int?
-    var image:UIImage?
+    var image:UIImageView?
     var mini:UIImage?
     var describe:String?
-      init?() {
+    init?(name:String, band:String, price:Double, timeExpire :Int, image:UIImageView, describe:String) {
+        self.id = createId()
+        self.name = name
+        self.band = band
+        self.price = price
+        self.timeExpire = timeExpire
+        self.image = image
+        self.describe = describe
         
     }
     
