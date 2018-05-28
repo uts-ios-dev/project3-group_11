@@ -15,7 +15,7 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
     @IBOutlet weak var image: UIImageView!
     
     //Detial information
-    @IBOutlet weak var productIDField: UITextField!
+ 
     @IBOutlet weak var productNameField: UITextField!
     @IBOutlet weak var brandField: UITextField!
     @IBOutlet weak var priceField: UITextField!
@@ -24,7 +24,6 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
     @IBOutlet weak var descriptionField: UITextField!
     
     override func viewDidLoad() {
-        productIDField.delegate = self
         productNameField.delegate = self
         brandField.delegate = self
         priceField.delegate = self
@@ -45,11 +44,15 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
             return
         }
         
+        guard let productName = productNameField.text else {return}
+        let productBrand = brandField.text
+        let productPrice = Double(priceField.text ?? "0")
+        let expiredate = getTimeStamp(expiredDate: expireDateField.text!)
+        let productDescription = descriptionField.text
         
-        var product =   Product()
-        
-    
-        
+        var product =   Product(name: productName, band: productBrand!, price: productPrice!, timeExpire: expiredate, image: image, describe: productDescription!)
+        StroageUtils.saveProduct(product: product!)
+       
     }
     @IBAction func tapPhoto(_ sender: Any) {
        
@@ -94,8 +97,6 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case productIDField:
-            productNameField.becomeFirstResponder()
         case productNameField:
             brandField.becomeFirstResponder()
         case brandField:
@@ -142,6 +143,21 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         self.view.endEditing(true)
         
     }
+    
+    // get the timestamp of expired date
+    func getTimeStamp(expiredDate:String) -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let expiredate = dateFormatter.date(from: expiredDate)
+        
+        let timeStamp = Int((expiredate?.timeIntervalSince1970)!)
+        return timeStamp
+    }
+    
+    
+    
+    
+    
     // only number is allowed for priceField
 //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        let allowedCharacters = "1234567890."
