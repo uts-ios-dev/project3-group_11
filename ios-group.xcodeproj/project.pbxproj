@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ADF6BD120BD183300B5DFB0 /* productTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF6BD020BD183300B5DFB0 /* productTableView.swift */; };
+		0ADF6BD520BD298800B5DFB0 /* extensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF6BD420BD298800B5DFB0 /* extensionDate.swift */; };
 		4C4DC44720B27741000B8C30 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C4DC44620B27740000B8C30 /* readme.md */; };
 		4C4DC44A20B27C58000B8C30 /* ProductUtilProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4DC44920B27C58000B8C30 /* ProductUtilProtocols.swift */; };
 		4C5234FE20B283FA0090698A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5234FD20B283FA0090698A /* Product.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ADF6BD020BD183300B5DFB0 /* productTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productTableView.swift; sourceTree = "<group>"; };
+		0ADF6BD420BD298800B5DFB0 /* extensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDate.swift; sourceTree = "<group>"; };
 		4C4DC44620B27740000B8C30 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = SOURCE_ROOT; };
 		4C4DC44920B27C58000B8C30 /* ProductUtilProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUtilProtocols.swift; sourceTree = "<group>"; };
 		4C5234FD20B283FA0090698A /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				4C52350220B288B40090698A /* ProductUtils.swift */,
 				4C52350120B288B40090698A /* StroageUtils.swift */,
 				4C52350320B288B40090698A /* Utils.swift */,
+				0ADF6BD420BD298800B5DFB0 /* extensionDate.swift */,
 			);
 			name = Utils;
 			path = "New Group";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4C52350720B288C10090698A /* TableViewCell.swift */,
+				0ADF6BD020BD183300B5DFB0 /* productTableView.swift */,
 			);
 			name = Views;
 			path = "New Group1";
@@ -341,11 +347,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4F98AA420A9455D006C88C4 /* ViewController.swift in Sources */,
+				0ADF6BD120BD183300B5DFB0 /* productTableView.swift in Sources */,
 				4C96E37320B64F5300FA1BE0 /* ScanViewControlloerViewController.swift in Sources */,
 				4C96E37520B667B400FA1BE0 /* NewItemViewController.swift in Sources */,
 				4C52350420B288B40090698A /* StroageUtils.swift in Sources */,
 				4C5234FE20B283FA0090698A /* Product.swift in Sources */,
 				4C52350820B288C10090698A /* TableViewCell.swift in Sources */,
+				0ADF6BD520BD298800B5DFB0 /* extensionDate.swift in Sources */,
 				4C52350520B288B40090698A /* ProductUtils.swift in Sources */,
 				4C4DC44A20B27C58000B8C30 /* ProductUtilProtocols.swift in Sources */,
 				4C52350620B288B40090698A /* Utils.swift in Sources */,

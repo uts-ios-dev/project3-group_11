@@ -43,6 +43,10 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         if image == nil {
             return
         }
+        if expireDateField.text == "" {
+            return
+        }
+     
         
         guard let productName = productNameField.text else {return}
         let productBrand = brandField.text
@@ -52,6 +56,9 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         
         var product =   Product(name: productName, band: productBrand!, price: productPrice!, timeExpire: expiredate, image: image, describe: productDescription!)
         StroageUtils.saveProduct(product: product!)
+        let list = StroageUtils.getProduct()
+        print(list[0].name)
+        
        
     }
     @IBAction func tapPhoto(_ sender: Any) {
