@@ -97,10 +97,11 @@ class productTableView: UITableViewController {
     }*/
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       var dataIndex = indexPath.row-1
+       let dataIndex = indexPath.row-1
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "myListSegue") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewDate[indexPath.section].title
+            cell.detailTextLabel?.text = ""
             return cell
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "myListSegue") else {return UITableViewCell()}
@@ -108,6 +109,7 @@ class productTableView: UITableViewController {
             let currentDate = Date()
             let endDate = Date(timeIntervalSince1970: Double(tableViewDate[indexPath.section].sectionDate[dataIndex].timeExpire!))
             cell.detailTextLabel?.text = "Expire: " + endDate.offset(from: currentDate)
+            cell.imageView?.image = tableViewDate[indexPath.section].sectionDate[dataIndex].image?.image
             return cell
         }
     }
@@ -115,8 +117,10 @@ class productTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableViewDate[indexPath.section].opened == true{
             tableViewDate[indexPath.section].opened = false
+           
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
+          
         }else{
             tableViewDate[indexPath.section].opened = true
             let sections = IndexSet.init(integer: indexPath.section)

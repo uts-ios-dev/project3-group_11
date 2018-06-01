@@ -43,23 +43,41 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         if image == nil {
             return
         }
-        if expireDateField.text == "" {
+        if (productNameField.text == "" || expireDateField.text == nil) {
+            let alertView = UIAlertController(title: "Error", message: "ProductName is necessary", preferredStyle: .alert)
+            let confirmBtn = UIAlertAction(title: "Ok", style: .default) { (action) in
+                return}
+            alertView.addAction(confirmBtn)
+            present(alertView, animated:true, completion:nil)
             return
+        }
+        if (expireDateField.text == "" || expireDateField.text == nil) {
+            let alertView = UIAlertController(title: "Error", message: "ExpireDate is necessary", preferredStyle: .alert)
+            let confirmBtn = UIAlertAction(title: "Ok", style: .default) { (action) in
+               return}
+            alertView.addAction(confirmBtn)
+            present(alertView, animated:true, completion:nil)
+           return
         }
      
         
-        guard let productName = productNameField.text else {return}
-        let productBrand = brandField.text
+        let productName = productNameField.text
+        let productBrand = brandField.text ?? "none"
         let productPrice = Double(priceField.text ?? "0")
         let expiredate = getTimeStamp(expiredDate: expireDateField.text!)
-        let productDescription = descriptionField.text
+        let productDescription = descriptionField.text ?? "none"
         
-        var product =   Product(name: productName, band: productBrand!, price: productPrice!, timeExpire: expiredate, image: image, describe: productDescription!)
+        let product =   Product(name: productName!, band: productBrand, price: (productPrice)!, timeExpire: expiredate, image: image, describe: productDescription)
         StroageUtils.saveProduct(product: product!)
-        let list = StroageUtils.getProduct()
-        print(list[0].name)
         
-       
+        // show alert info
+        let alertView = UIAlertController(title: "Add item", message: "The item is saved", preferredStyle: .alert)
+        let confirmBtn = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            let storyBoard:UIStoryboard = UIStoryboard(name:"Main", bundle :nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+            self.navigationController?.pushViewController(newViewController, animated: true)        }
+        alertView.addAction(confirmBtn)
+        present(alertView, animated:true, completion:nil)
     }
     @IBAction func tapPhoto(_ sender: Any) {
        
