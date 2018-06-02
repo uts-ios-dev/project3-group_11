@@ -102,6 +102,7 @@ class productTableView: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "myListSegue") else {return UITableViewCell()}
             cell.textLabel?.text = tableViewDate[indexPath.section].title
             cell.detailTextLabel?.text = ""
+            cell.imageView?.image = nil
             return cell
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "myListSegue") else {return UITableViewCell()}
@@ -111,7 +112,7 @@ class productTableView: UITableViewController {
             cell.detailTextLabel?.text = "Expire: " + endDate.offset(from: currentDate)
             
             cell.imageView?.image = tableViewDate[indexPath.section].sectionDate[dataIndex].image?.image
-            cell.backgroundColor = UIColor.lightGray
+            //cell.backgroundColor = UIColor.lightGray
             return cell
         }
     }
@@ -119,7 +120,6 @@ class productTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableViewDate[indexPath.section].opened == true && indexPath.row == 0){
             tableViewDate[indexPath.section].opened = false
-           
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
           
