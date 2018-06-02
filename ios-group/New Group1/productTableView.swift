@@ -109,13 +109,15 @@ class productTableView: UITableViewController {
             let currentDate = Date()
             let endDate = Date(timeIntervalSince1970: Double(tableViewDate[indexPath.section].sectionDate[dataIndex].timeExpire!))
             cell.detailTextLabel?.text = "Expire: " + endDate.offset(from: currentDate)
+            
             cell.imageView?.image = tableViewDate[indexPath.section].sectionDate[dataIndex].image?.image
+            cell.backgroundColor = UIColor.lightGray
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableViewDate[indexPath.section].opened == true{
+        if (tableViewDate[indexPath.section].opened == true && indexPath.row == 0){
             tableViewDate[indexPath.section].opened = false
            
             let sections = IndexSet.init(integer: indexPath.section)

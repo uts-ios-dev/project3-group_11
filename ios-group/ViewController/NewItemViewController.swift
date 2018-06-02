@@ -63,11 +63,11 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         
         let productName = productNameField.text
         let productBrand = brandField.text ?? "none"
-        let productPrice = Double(priceField.text ?? "0")
+        let productPrice = ((priceField.text)! as NSString).doubleValue
         let expiredate = getTimeStamp(expiredDate: expireDateField.text!)
         let productDescription = descriptionField.text ?? "none"
         
-        let product =   Product(name: productName!, band: productBrand, price: (productPrice)!, timeExpire: expiredate, image: image, describe: productDescription)
+        let product =   Product(name: productName!, band: productBrand, price: (productPrice), timeExpire: expiredate, image: image, describe: productDescription)
         StroageUtils.saveProduct(product: product!)
         
         // show alert info
