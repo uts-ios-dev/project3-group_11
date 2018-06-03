@@ -114,7 +114,7 @@ class productTableView: UITableViewController {
             let endDate = Date(timeIntervalSince1970: Double(tableViewDate[indexPath.section].sectionDate[dataIndex].timeExpire!))
             cell.detailTextLabel?.text = "Expire: " + endDate.offset(from: currentDate)
             
-            cell.imageView?.image = tableViewDate[indexPath.section].sectionDate[dataIndex].image?.image
+            cell.imageView?.image = UIImage(contentsOfFile:tableViewDate[indexPath.section].sectionDate[dataIndex].image!)
             //cell.backgroundColor = UIColor.lightGray
             return cell
         }

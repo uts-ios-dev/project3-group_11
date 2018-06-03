@@ -15,7 +15,6 @@
 		4C52350420B288B40090698A /* StroageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52350120B288B40090698A /* StroageUtils.swift */; };
 		4C52350520B288B40090698A /* ProductUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52350220B288B40090698A /* ProductUtils.swift */; };
 		4C52350620B288B40090698A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52350320B288B40090698A /* Utils.swift */; };
-		4C52350820B288C10090698A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52350720B288C10090698A /* TableViewCell.swift */; };
 		4C96E37320B64F5300FA1BE0 /* ScanViewControlloerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E37220B64F5300FA1BE0 /* ScanViewControlloerViewController.swift */; };
 		4C96E37520B667B400FA1BE0 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C96E37420B667B400FA1BE0 /* NewItemViewController.swift */; };
 		4C9E071720BBB25D003A7E4D /* MyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E071620BBB25D003A7E4D /* MyWebViewController.swift */; };
@@ -57,7 +56,6 @@
 		4C52350120B288B40090698A /* StroageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StroageUtils.swift; path = "ios-group/Utils/StroageUtils.swift"; sourceTree = SOURCE_ROOT; };
 		4C52350220B288B40090698A /* ProductUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductUtils.swift; path = "ios-group/Utils/ProductUtils.swift"; sourceTree = SOURCE_ROOT; };
 		4C52350320B288B40090698A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "ios-group/Utils/Utils.swift"; sourceTree = SOURCE_ROOT; };
-		4C52350720B288C10090698A /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "ios-group/Views/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4C96E37220B64F5300FA1BE0 /* ScanViewControlloerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewControlloerViewController.swift; sourceTree = "<group>"; };
 		4C96E37420B667B400FA1BE0 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		4C9E071620BBB25D003A7E4D /* MyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebViewController.swift; sourceTree = "<group>"; };
@@ -135,8 +133,6 @@
 		4C5234F620B283D90090698A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4C52350720B288C10090698A /* TableViewCell.swift */,
-				0ADF6BD020BD183300B5DFB0 /* productTableView.swift */,
 			);
 			name = Views;
 			path = "New Group1";
@@ -149,6 +145,7 @@
 				4C96E37420B667B400FA1BE0 /* NewItemViewController.swift */,
 				4C9E071620BBB25D003A7E4D /* MyWebViewController.swift */,
 				4CE06D0420C28F8300D7920F /* EditViewController.swift */,
+				0ADF6BD020BD183300B5DFB0 /* productTableView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -356,7 +353,6 @@
 				4C52350420B288B40090698A /* StroageUtils.swift in Sources */,
 				4C5234FE20B283FA0090698A /* Product.swift in Sources */,
 				4CE06D0520C28F8300D7920F /* EditViewController.swift in Sources */,
-				4C52350820B288C10090698A /* TableViewCell.swift in Sources */,
 				0ADF6BD520BD298800B5DFB0 /* extensionDate.swift in Sources */,
 				4C52350520B288B40090698A /* ProductUtils.swift in Sources */,
 				4C4DC44A20B27C58000B8C30 /* ProductUtilProtocols.swift in Sources */,

@@ -43,7 +43,7 @@ class EditViewController: UIViewController ,UIImagePickerControllerDelegate, UIN
         
         if isFirst == true {
             let product =   StroageUtils.getProductById(id: id)
-            photo.image  = product.image?.image
+            photo.image  = UIImage(contentsOfFile:product.image!)
             productName.text = product.name
             brand.text = product.band
             price.text = String(format:"%f", product.price!)
