@@ -11,12 +11,15 @@ import UIKit
 class productTableView: UITableViewController {
     @IBOutlet var productTable: UITableView!
     let productlist = StroageUtils.getProduct().sorted(by:<)
+    var goId : Int = 0
     struct cellDate {
         var opened = Bool()
         var title = String()
         var sectionDate = [Product]()
     }
     var tableViewDate = [cellDate]()
+    
+  
     
     
     override func viewDidLoad() {
@@ -117,7 +120,10 @@ class productTableView: UITableViewController {
         }
     }
     
+
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let dataIndex = indexPath.row - 1
         if (tableViewDate[indexPath.section].opened == true && indexPath.row == 0){
             tableViewDate[indexPath.section].opened = false
             let sections = IndexSet.init(integer: indexPath.section)
@@ -127,10 +133,37 @@ class productTableView: UITableViewController {
             tableViewDate[indexPath.section].opened = true
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
+            
         }
+        
+         print(dataIndex);
+        
+        if indexPath.row != 0 {
+            
+            
+             print(tableViewDate[indexPath.section].sectionDate[dataIndex].id)
+            
+            goDetail(id: tableViewDate[indexPath.section].sectionDate[dataIndex].id!)
+        }
+//        if tableViewDate[indexPath.section].sectionDate[dataIndex].image != nil {
+//            print("sub");
+//        }else {
+//            print("title");
+//        }
+    }
+    
+    func goDetail(id: Int){
+           goId = id
+          performSegue(withIdentifier: "goEdit", sender: nil)
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goEdit" {
+            let controller = segue.destination as! EditViewController
+            controller.id = self.goId
+        }
+    }
     
     
     

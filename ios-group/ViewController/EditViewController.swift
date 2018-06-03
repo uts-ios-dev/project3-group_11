@@ -1,53 +1,74 @@
 //
-//  NewItemViewController.swift
+//  EditViewController.swift
 //  ios-group
 //
-//  Created by Christopher on 24/05/2018.
+//  Created by Christopher on 02/06/2018.
 //  Copyright © 2018 Minny Lin. All rights reserved.
 //
 
 import UIKit
 
-class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditViewController: UIViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var photo: UIButton!
-    @IBOutlet weak var camera: UIButton!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var galary: UIButton!
+    @IBOutlet weak var ca: UIButton!
     
-    //Detial information
- 
-    @IBOutlet weak var productNameField: UITextField!
-    @IBOutlet weak var brandField: UITextField!
-    @IBOutlet weak var priceField: UITextField!
-    @IBOutlet weak var expireDateField: UITextField!
-    let datePicker = UIDatePicker()
-    @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var productName: UITextField!
+    @IBOutlet weak var brand: UITextField!
+    @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var expireDate: UITextField!
+    @IBOutlet weak var dec: UITextField!
     
+    var id :Int!
+    
+      let datePicker = UIDatePicker()
     override func viewDidLoad() {
-        productNameField.delegate = self
-        brandField.delegate = self
-        priceField.delegate = self
-        expireDateField.delegate = self
-        descriptionField.delegate = self
+        
+        productName.delegate = self
+        brand.delegate = self
+        price.delegate = self
+        expireDate.delegate = self
+        dec.delegate = self
+        
+        
         
         super.viewDidLoad()
-        createDatePicker()// create datepick for expireField
+        createDatePicker()
         // Do any additional setup after loading the view.
     }
-    
+    var isFirst:Bool = true
     override func viewWillAppear(_ animated: Bool) {
-
         
         
-    }
-    
-    
-    @IBAction func saveItem(_ sender: Any) {
-        
-        if image == nil {
-            return
+        if isFirst == true {
+            let product =   StroageUtils.getProductById(id: id)
+            photo.image  = product.image?.image
+            productName.text = product.name
+            brand.text = product.band
+            price.text = String(format:"%f", product.price!)
+            dec.text = product.describe
+            
+            let unixTimestamp = product.timeExpire!
+            let date = Date(timeIntervalSince1970: TimeInterval(unixTimestamp))
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            formatter.dateFormat = "MM/dd/yyyy"
+            let dateString = formatter.string(from:date)
+            
+            expireDate.text = "\(dateString)"
+            isFirst = false
         }
-        if (productNameField.text == "" || expireDateField.text == nil) {
+     
+    }
+    @IBAction func SaveItem(_ sender: Any) {
+        
+                if photo == nil {
+                    return
+                }
+        if (self.productName.text == "" || expireDate.text == nil) {
             let alertView = UIAlertController(title: "Error", message: "ProductName is necessary", preferredStyle: .alert)
             let confirmBtn = UIAlertAction(title: "Ok", style: .default) { (action) in
                 return}
@@ -55,58 +76,53 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
             present(alertView, animated:true, completion:nil)
             return
         }
-        if (expireDateField.text == "" || expireDateField.text == nil) {
+        if (expireDate.text == "" || expireDate.text == nil) {
             let alertView = UIAlertController(title: "Error", message: "ExpireDate is necessary", preferredStyle: .alert)
             let confirmBtn = UIAlertAction(title: "Ok", style: .default) { (action) in
-               return}
+                return}
             alertView.addAction(confirmBtn)
             present(alertView, animated:true, completion:nil)
-           return
+            return
         }
-     
+        let productName = self.productName.text
+        let productBrand = brand.text ?? "none"
+        let productPrice = ((price.text)! as NSString).doubleValue
+        let expiredate = getTimeStamp(expiredDate: expireDate.text!)
         
-        let productName = productNameField.text
-        let productBrand = brandField.text ?? "none"
-        let productPrice = ((priceField.text)! as NSString).doubleValue
-        let expiredate = getTimeStamp(expiredDate: expireDateField.text!)
-        let productDescription = descriptionField.text ?? "none"
         
-        let product =   Product(name: productName!, band: productBrand, price: (productPrice), timeExpire: expiredate, image: image, describe: productDescription)
+        
+        
+        let productDescription = dec.text ?? "none"
+        
+        let product =   Product(name: productName!, band: productBrand, price: (productPrice), timeExpire: expiredate, image: photo, describe: productDescription)
         StroageUtils.saveProduct(product: product!)
         
+        StroageUtils.removeProductById(id: id)
+        
         // show alert info
-        let alertView = UIAlertController(title: "Add item", message: "The item is saved", preferredStyle: .alert)
+        let alertView = UIAlertController(title: "Edit item", message: "The item is saved", preferredStyle: .alert)
         let confirmBtn = UIAlertAction(title: "Confirm", style: .default) { (action) in
 //            let storyBoard:UIStoryboard = UIStoryboard(name:"Main", bundle :nil)
-//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
-//            self.navigationController?.pushViewController(newViewController, animated: true)
-               self.navigationController?.popToRootViewController(animated: true)
+//            let EditViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+//            self.navigationController?.pushViewController(EditViewController, animated: true)
+              self.navigationController?.popToRootViewController(animated: true)
+           
         }
         alertView.addAction(confirmBtn)
         present(alertView, animated:true, completion:nil)
+        
+        
     }
+    
+   
+    
     @IBAction func tapPhoto(_ sender: Any) {
-       
-         getImage(type:.photoLibrary)
+            getImage(type:.photoLibrary)
     }
     
     @IBAction func tapCamera(_ sender: Any) {
-     
-        getImage(type:.camera)
+          getImage(type:.camera)
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let tImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            image.image = tImage
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
     func getImage(type:UIImagePickerControllerSourceType){
         
         
@@ -115,36 +131,44 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         picker.sourceType = type
         present(picker, animated: true, completion: nil)
     }
- 
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let tImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+           
+         photo.image = tImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         //keyboard return problem
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case productNameField:
-            brandField.becomeFirstResponder()
-        case brandField:
-            priceField.becomeFirstResponder()
-        case priceField:
-            expireDateField.becomeFirstResponder()
-        case expireDateField:
-            descriptionField.becomeFirstResponder()
-        case descriptionField:
+        case productName:
+            brand.becomeFirstResponder()
+        case brand:
+            price.becomeFirstResponder()
+        case price:
+            expireDate.becomeFirstResponder()
+        case expireDate:
+            dec.becomeFirstResponder()
+        case dec:
             self.view.endEditing(true)
         default:
-                self.view.endEditing(true)
+            self.view.endEditing(true)
         }
         return true
         //keyboard return problem
     }
-    
     //Create date picker for the input of expire date
     func createDatePicker(){
         // toolbar
@@ -154,8 +178,8 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         //done button
         let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerDonePress))
         dateToolbar.setItems([done], animated: false)
-        expireDateField.inputAccessoryView = dateToolbar
-        expireDateField.inputView = datePicker
+        expireDate.inputAccessoryView = dateToolbar
+        expireDate.inputView = datePicker
         
         //format picker for date
         datePicker.datePickerMode = .date
@@ -170,7 +194,7 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         formatter.dateFormat = "MM/dd/yyyy"
         let dateString = formatter.string(from: datePicker.date)
         
-        expireDateField.text = "\(dateString)"
+        expireDate.text = "\(dateString)"
         self.view.endEditing(true)
         
     }
@@ -184,21 +208,6 @@ class NewItemViewController: UIViewController ,UIImagePickerControllerDelegate, 
         let timeStamp = Int((expiredate?.timeIntervalSince1970)!)
         return timeStamp
     }
-    
-    
-    
-    
-    
-    // only number is allowed for priceField
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let allowedCharacters = "1234567890."
-//        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-//        let typeCharacterSet = CharacterSet(charactersIn: string)
-//
-//        return allowedCharacterSet.isSuperset(of: typeCharacterSet)
-//    }
-    
-    
     
     /*
     // MARK: - Navigation
